@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f9e3ea" />
+    <meta name="description" content="An elegant birthday card for someone truly special." />
+    <meta name="keywords" content="birthday, card, celebration, love, memories" />
+    <meta name="author" content="Made with love" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>" />
+    <title>Happy Birthday — Disha</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+    <div class="page-wrap">
+      <header class="hero" id="top">
+        <button class="theme-toggle" id="toggleTheme" aria-label="Toggle theme">◐</button>
+        <div class="halo" aria-hidden="true"></div>
+
+        <div class="sparkles" aria-hidden="true">
+          <span style="top: 8%; left: 12%"></span>
+          <span style="top: 18%; right: 14%"></span>
+          <span style="top: 26%; left: 28%"></span>
+          <span style="top: 38%; right: 24%"></span>
+          <span style="top: 46%; left: 8%"></span>
+          <span style="top: 56%; right: 6%"></span>
+          <span style="top: 68%; left: 22%"></span>
+          <span style="top: 72%; right: 18%"></span>
+          <span style="top: 84%; left: 12%"></span>
+          <span style="top: 12%; left: 56%"></span>
+          <span style="top: 34%; left: 66%"></span>
+          <span style="top: 58%; left: 52%"></span>
+          <span style="top: 72%; left: 68%"></span>
+          <span style="top: 82%; left: 48%"></span>
+          <span style="top: 14%; left: 82%"></span>
+          <span style="top: 44%; left: 86%"></span>
+          <span style="top: 64%; left: 78%"></span>
+          <span style="top: 88%; left: 86%"></span>
+        </div>
+
+        <div class="hero-inner">
+          <div class="eyebrow">A day to celebrate ✨</div>
+          <h1 class="title">Happy Birthday, <span class="name">Disha</span> 💖</h1>
+          <p class="subtitle">May your day be wrapped in warmth, joy, and the sweetest little moments. You deserve all the light in the world today and always.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#wishes" data-scroll>Open the card 💌</a>
+            <a class="btn btn-secondary" href="pages/memories.html">Little memories 📸</a>
+            <a class="btn btn-secondary" href="pages/notes.html">Special notes 💝</a>
+          </div>
+          <div class="scroll-hint">Scroll to read the wish ↓</div>
+        </div>
+      </header>
+
+      <main>
+        <section id="wishes" class="card" aria-label="Birthday wishes">
+          <h2>For the Twinkle Heart.. 😊</h2>
+          <p>
+            Today is all about you. The world feels softer, the colors a little
+            brighter, and every melody a touch sweeter because it's your day.
+          </p>
+          <p>
+            I'm endlessly grateful for your kindness, your laughter, and the way
+            you make even ordinary moments feel like little celebrations. I hope
+            this year brings you courage for your dreams, peace for your heart,
+            and magic in all the places you haven't yet looked.
+          </p>
+          <p>
+            Your smile has the power to light up entire rooms, and your heart
+            has the capacity to make everyone around you feel special. You are
+            truly a gift to this world, and I'm so lucky to have you in my life.
+          </p>
+          <div class="divider" aria-hidden="true"></div>
+          <p class="signature">With love, always 💕</p>
+        </section>
+
+        <section class="card" aria-label="Special message">
+          <h2>You Are Amazing 🌟</h2>
+          <p>
+            Every day with you is a blessing. Your strength, your kindness, and
+            your beautiful spirit inspire everyone around you. You have this
+            incredible ability to make people feel seen, heard, and loved.
+          </p>
+          <p>
+            May this birthday be the beginning of a year filled with joy,
+            laughter, and all the beautiful moments you deserve. You are loved
+            beyond measure, and your presence in this world makes it a better place.
+          </p>
+          <div class="divider" aria-hidden="true"></div>
+          <p class="signature">Forever grateful for you ✨</p>
+        </section>
+      </main>
+
+      <footer>
+        Made with love and care • <span id="year"></span> 💖
+      </footer>
+    </div>
+
+    <script>
+      // Theme persistence + system preference
+      (function() {
+        const root = document.documentElement;
+        const stored = localStorage.getItem('theme');
+        const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = stored || (systemDark ? 'dark' : 'light');
+        if (initial === 'dark') root.setAttribute('data-theme', 'dark');
+        const btn = document.getElementById('toggleTheme');
+        if (btn) btn.addEventListener('click', () => {
+          const isDark = root.getAttribute('data-theme') === 'dark';
+          if (isDark) {
+            root.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+          } else {
+            root.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+          }
+        });
+      })();
+
+      const scrollLinks = document.querySelectorAll('[data-scroll]');
+      for (const link of scrollLinks) {
+        link.addEventListener('click', (event) => {
+          const targetId = link.getAttribute('href');
+          if (!targetId || !targetId.startsWith('#')) return;
+          event.preventDefault();
+          const target = document.querySelector(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Add interactive hover effects
+      document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px) scale(1.05)';
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+      });
+
+      // Add confetti effect on page load
+      function createConfetti() {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'fixed';
+        confetti.style.top = '-10px';
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.width = '10px';
+        confetti.style.height = '10px';
+        confetti.style.backgroundColor = ['#f5afc2', '#c7b8ea', '#ffd3a3', '#a9e7da'][Math.floor(Math.random() * 4)];
+        confetti.style.borderRadius = '50%';
+        confetti.style.pointerEvents = 'none';
+        confetti.style.zIndex = '1000';
+        confetti.style.animation = 'confetti-fall 3s linear forwards';
+        
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => {
+          confetti.remove();
+        }, 3000);
+      }
+
+      // Add confetti animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes confetti-fall {
+          0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+          100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Create confetti on page load
+      setTimeout(() => {
+        for (let i = 0; i < 50; i++) {
+          setTimeout(() => createConfetti(), i * 100);
+        }
+      }, 1000);
+    </script>
+</body>
+</html>

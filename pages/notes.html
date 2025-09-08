@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f9e3ea" />
+    <meta name="description" content="Special notes — write as much as you want." />
+    <meta name="keywords" content="notes, messages, birthday, special, love" />
+    <meta name="author" content="Made with love" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>" />
+    <title>Special Notes — For Disha</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body class="notes">
+    <div class="dna" id="dna" aria-hidden="true"></div>
+
+    <header>
+      <div class="brand">
+        <span class="logo">Special Notes</span>
+        <small>For Our Beloved Disha</small>
+      </div>
+      <div>
+        <button class="theme-toggle" id="toggleTheme" aria-label="Toggle theme">◐</button>
+        <button class="back" onclick="history.back()">← Back</button>
+      </div>
+    </header>
+
+    <main class="notes-gallery">
+      <section class="note-slide is-active">
+        <div class="gradient-bg" aria-hidden="true"></div>
+        <div class="note-frame">
+          <div class="note-content">
+            <h3>Dearest Disha 💖</h3>
+            <div class="note-date">Happy Birthday.....</div>
+            <p style="text-align: justify;">
+              Once again wishing you a very happy birthday ma..! and itha vida persa ellam plan pannen ma but budget problem..😅 so ennal mudinthathu Hope u like it.., 
+              I want to take a moment to tell you how much you mean to me.
+            </p>
+            <p style="text-align: justify;">
+             Unna theriyama vandhu, it’s almost 5 years now… and namma romba close aanathu last 2 years la thaan.
+Namma neriya share pannirukom, neriya time spend pannirukom… but idk, eppo unna paathalum oru positive and oru happy feel...
+
+I still remember the first day I came to know you — WhatsApp group la thaan paathen. Like, <b><i>“For girls, Disha and Divyabharathi will be the class representatives.”</i></b>
+Appo I was like, “romba periya aalu pola… namma ellam pesuna pesuvangala?” apdi ellam think panniruken… 😅😅
+
+Niyabagam iruka, 2nd year la Colors appo nee singing event conduct panniye… appo thaan first time pesunen unnoda, athuvum Google Form poda… 😅😅 Appo kuda perusa close aagala. But apram 3rd year starting la irunthu thaan namma neriya pesa arambichom.
+
+Athuku apram than naan ellathayum share panna start panniten. Honestly, it felt so nice talking with you. Niyabagam iruka, first time nee ennakitta vachu azhuthathu? IV appo Lulu Mall la… athuvum, you cried for me. Naan antha vishayatha sonnapo ellarukum oru mathiri aachu, but you were the first one to cry after my parents.
+
+Final year was like a dream come true… 😅😅 Almost one year namma full ah senthu thaan suthunom — project works, athu ithu nu. It was really so good.
+
+And sollatha unmaiya sollava… you are really sooo cute and charming. Theriyuma, unmaiya sollanum na first and second year la unna sight ellam adichiruken… 😅😅 But ithu varaikum sollala… 😅😅 Innum ithu mathiri neriya iruku…
+
+Last but not the least — thank you for supporting me and caring for me all this time. Thank you for being in my life.
+</p>
+<p style="text-align: justify;">
+I miss you sooooo much ma…🥺....Hope I will meet you soon...
+</p>
+<p style="text-align: justify;">
+I really hope I’ll have this bond forever in my life… ❤️🫂
+</p>
+<p style="text-align: justify;">
+
+Happy ah iru, jolly ah iru… once again Happy Birthday ma 💖💖. Have a wonderful and blessed year ahead ✨ 
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="dots" aria-label="Note navigation">
+      <button class="dot active" aria-label="Go to note 1"></button>
+      <button class="dot" aria-label="Go to note 2"></button>
+      <button class="dot" aria-label="Go to note 3"></button>
+      <button class="dot" aria-label="Go to note 4"></button>
+    </nav>
+
+    <script>
+      // Theme persistence + system preference
+      (function () {
+        const root = document.documentElement;
+        const stored = localStorage.getItem('theme');
+        const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = stored || (systemDark ? 'dark' : 'light');
+        if (initial === 'dark') root.setAttribute('data-theme', 'dark');
+        const btn = document.getElementById('toggleTheme');
+        btn?.addEventListener('click', () => {
+          const isDark = root.getAttribute('data-theme') === 'dark';
+          if (isDark) { root.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
+          else { root.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); }
+        });
+      })();
+
+      // Build DNA rows dynamically
+      (function () {
+        const dnaEl = document.getElementById('dna');
+        if (!dnaEl) return;
+        const rows = 26;
+        for (let i = 0; i < rows; i++) {
+          const row = document.createElement('div');
+          row.className = 'dna-row';
+          row.style.setProperty('--i', String(i));
+          const dotA = document.createElement('span'); dotA.className = 'dna-dot a'; dotA.style.setProperty('--i', String(i));
+          const dotB = document.createElement('span'); dotB.className = 'dna-dot b'; dotB.style.setProperty('--i', String(i));
+          const rail = document.createElement('span'); rail.className = 'dna-rail'; rail.style.setProperty('--i', String(i));
+          row.appendChild(dotA); row.appendChild(rail); row.appendChild(dotB);
+          dnaEl.appendChild(row);
+        }
+      })();
+
+      // Note navigation
+      const noteSlides = Array.from(document.querySelectorAll('.note-slide'));
+      const noteDots = Array.from(document.querySelectorAll('.dot'));
+
+      noteDots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          // Remove active class from all slides and dots
+          noteSlides.forEach(slide => slide.classList.remove('is-active'));
+          noteDots.forEach(d => d.classList.remove('active'));
+          
+          // Add active class to current slide and dot
+          noteSlides[i].classList.add('is-active');
+          dot.classList.add('active');
+        });
+      });
+
+      // Auto-advance notes every 8 seconds
+      let currentNote = 0;
+      setInterval(() => {
+        currentNote = (currentNote + 1) % noteSlides.length;
+        noteSlides.forEach(slide => slide.classList.remove('is-active'));
+        noteDots.forEach(d => d.classList.remove('active'));
+        noteSlides[currentNote].classList.add('is-active');
+        noteDots[currentNote].classList.add('active');
+      }, 8000);
+
+      // Initialize DNA colors
+      window.addEventListener('load', () => {
+        document.documentElement.style.setProperty('--dna-a', '#f5afc2');
+        document.documentElement.style.setProperty('--dna-b', '#c7b8ea');
+      });
+
+      // Add floating hearts animation
+      function createHeart() {
+        const heart = document.createElement('div');
+        heart.innerHTML = '💖';
+        heart.style.position = 'fixed';
+        heart.style.top = '100vh';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.fontSize = '20px';
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '1000';
+        heart.style.animation = 'heart-float 6s linear forwards';
+        
+        document.body.appendChild(heart);
+        
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
+
+      // Add heart animation
+      const heartStyle = document.createElement('style');
+      heartStyle.textContent = `
+        @keyframes heart-float {
+          0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+          100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(heartStyle);
+
+      // Create floating hearts periodically
+      setInterval(() => {
+        createHeart();
+      }, 3000);
+    </script>
+  </body>
+</html>
